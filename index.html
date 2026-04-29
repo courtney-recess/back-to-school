@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Back to School & Back to College — Recess</title>
+  <meta name="description" content="49+ household brands across 9 categories — Recess delivers Back to School and Back to College sampling at the moments that matter.">
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    body { background: var(--color-navy); color: #fff; font-family: 'Inter', system-ui, sans-serif; margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* Nav */
+    .nav { position: fixed; top:0; left:0; right:0; z-index:100; padding: 18px 48px; background: var(--glass-bg-dark); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo img { height: 28px; width: auto; }
+    .nav-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; background: var(--color-aqua); color: #fff; font-weight: 600; font-size: 14px; border-radius: var(--radius-button); box-shadow: var(--shadow-cta-glow); transition: all var(--transition-base); }
+    .nav-cta:hover { background: var(--color-sea-green); transform: var(--hover-lift); box-shadow: var(--shadow-cta-glow-hover); }
+
+    /* Hero */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; padding: 140px 48px 80px; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/slide_021_1.jpg'); background-size: cover; background-position: center; filter: saturate(1.1); }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,15,26,0.55), rgba(10,15,26,0.80) 60%, var(--color-navy)); }
+    .hero-bg::before { content: ''; position: absolute; inset: 0; z-index: 1; background: radial-gradient(ellipse at 70% 30%, rgba(20,185,214,0.18), transparent 60%); }
+    .hero-inner { position: relative; z-index: 2; max-width: 1160px; margin: 0 auto; width: 100%; }
+    .hero-label { display: inline-flex; align-items: center; gap: 10px; font-size: var(--font-size-section-label); font-weight: 600; letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-aqua); padding: 8px 16px; background: rgba(20,185,214,0.10); border: 1px solid rgba(20,185,214,0.25); border-radius: var(--radius-pill); margin-bottom: 28px; }
+    .hero-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--color-aqua); box-shadow: 0 0 12px var(--color-aqua); }
+    .hero h1 { font-size: clamp(3rem, 7vw + 0.5rem, 6rem); font-weight: 900; line-height: 0.98; letter-spacing: -0.04em; margin: 0 0 32px; max-width: 960px; }
+    .hero h1 em { color: var(--color-aqua); font-style: normal; }
+    .hero-sub { font-size: clamp(1.1rem, 1.4vw + 0.4rem, 1.5rem); color: rgba(255,255,255,0.70); max-width: 720px; line-height: 1.5; margin-bottom: 48px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; background: var(--color-aqua); color: #fff; font-weight: 700; font-size: 17px; border-radius: var(--radius-button); box-shadow: var(--shadow-cta-glow); transition: all var(--transition-base); }
+    .btn-primary:hover { background: var(--color-sea-green); transform: var(--hover-lift); box-shadow: var(--shadow-cta-glow-hover); }
+
+    /* Stats */
+    .stats { background: var(--color-navy-light); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 100px 48px; }
+    .stats-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 48px; }
+    .stat { border-left: 2px solid rgba(20,185,214,0.30); padding-left: 24px; }
+    .stat-num { font-size: clamp(3rem, 5vw + 0.5rem, 5.5rem); font-weight: 900; color: var(--color-aqua); letter-spacing: -0.05em; line-height: 0.95; margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+    .stat-label { font-size: 15px; color: rgba(255,255,255,0.70); font-weight: 500; line-height: 1.4; }
+
+    /* Category rail (anchor nav) */
+    .cat-rail { position: sticky; top: 64px; z-index: 50; background: rgba(10,15,26,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 14px 24px; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+    .cat-rail-inner { max-width: 1400px; margin: 0 auto; display: flex; gap: 8px; }
+    .cat-rail a { display: inline-flex; align-items: center; padding: 8px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; transition: all 0.2s ease; flex-shrink: 0; }
+    .cat-rail a:hover { color: var(--color-aqua); border-color: rgba(20,185,214,0.40); background: rgba(20,185,214,0.08); }
+
+    /* Category sections */
+    .cat-section { padding: 80px 24px 40px; max-width: 1440px; margin: 0 auto; scroll-margin-top: 130px; }
+    .cat-head { max-width: 1160px; margin: 0 auto 36px; padding: 0 24px; }
+    .block-label { display: inline-block; font-size: var(--font-size-section-label); font-weight: 600; letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-aqua); margin-bottom: 14px; }
+    .cat-title { font-size: clamp(2rem, 3.5vw + 0.5rem, 3.25rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: #fff; margin: 0 0 12px; }
+    .cat-sub { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 640px; line-height: 1.55; margin: 0; }
+
+    /* Natural-aspect masonry (CSS columns — Pinterest-style, no empty cells) */
+    .masonry { column-count: 4; column-gap: 10px; }
+    .tile { position: relative; overflow: hidden; border-radius: 12px; background: var(--color-navy-light); margin: 0 0 10px; padding: 0; break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; display: block; }
+    .tile.revealed { opacity: 1; transform: translateY(0); }
+    .tile img { display: block; width: 100%; height: auto; transition: transform 0.6s ease; filter: brightness(0.95); }
+    .tile:hover img { transform: scale(1.04); filter: brightness(1.05); }
+    .tile figcaption { position: absolute; inset: auto 0 0 0; padding: 90px 14px 14px; background: linear-gradient(to top, rgba(10,15,26,0.95), rgba(10,15,26,0.55) 60%, transparent); display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+    .chip-brand { display: inline-flex; align-items: center; align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-aqua); background: rgba(20,185,214,0.18); padding: 5px 11px; border-radius: 100px; border: 1px solid rgba(20,185,214,0.35); }
+    .chip-result { font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 500; line-height: 1.35; max-width: 90%; }
+
+    /* Feature tile — full-width hero in each section */
+    .tile.tile-feature { column-span: all; margin-bottom: 14px; }
+    .tile.tile-feature img { width: 100%; max-height: 540px; object-fit: cover; object-position: center; }
+    .tile.tile-feature figcaption { padding: 140px 28px 28px; }
+    .tile.tile-feature .chip-brand { font-size: 13px; padding: 7px 14px; }
+    .tile.tile-feature .chip-result { font-size: 14px; max-width: 60%; }
+
+    /* CTA */
+    .cta { position: relative; padding: 140px 48px; overflow: hidden; margin-top: 80px; }
+    .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(20,185,214,0.18), transparent 70%); }
+    .cta-inner { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; text-align: center; }
+    .cta h2 { font-size: clamp(2.2rem, 4vw + 0.5rem, 4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin: 24px 0; }
+    .cta h2 em { color: var(--color-aqua); font-style: normal; }
+    .cta p { font-size: 18px; color: rgba(255,255,255,0.70); max-width: 560px; margin: 0 auto 40px; line-height: 1.6; }
+
+    /* Footer */
+    footer { padding: 48px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; max-width: 1160px; margin: 0 auto; }
+    footer img { height: 22px; }
+    footer small { color: rgba(255,255,255,0.40); font-size: 13px; }
+
+    /* Responsive */
+    @media (max-width: 1280px) {
+      .masonry { column-count: 3; }
+    }
+    @media (max-width: 900px) {
+      .nav { padding: 14px 24px; }
+      .hero { padding: 110px 24px 60px; }
+      .stats, .cta { padding: 80px 24px; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .cat-section { padding: 60px 12px 24px; }
+      .cat-head { padding: 0 12px; margin-bottom: 24px; }
+      .masonry { column-count: 2; column-gap: 8px; }
+      .tile { margin-bottom: 8px; }
+      .tile.tile-feature { column-span: all; }
+      .tile.tile-feature figcaption { padding: 80px 16px 16px; }
+      .tile.tile-feature .chip-result { max-width: 100%; }
+      footer { padding: 32px 24px; }
+    }
+    @media (max-width: 540px) {
+      .masonry { column-count: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://www.recess.is/" class="nav-logo"><img src="logo-full-white.png" alt="Recess"></a>
+    <a href="#cta" class="nav-cta">Book a meeting →</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <span class="hero-label">Back to School & Back to College</span>
+      <h1>The brands students <em>actually use</em> — sampled where they live, learn, and play.</h1>
+      <p class="hero-sub">49 household brands across 9 categories. From K-8 cafeterias to college dorms, from morning energy to late-night snacks — Recess delivers product trial at the moments that drive purchase.</p>
+      <a href="#energy-drinks" class="btn-primary">See the brands →</a>
+    </div>
+  </header>
+
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="stat"><div class="stat-num">49+</div><div class="stat-label">household brands sampled in the last 24 months</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">CPG categories — every shelf in the dorm and the lunchbox</div></div>
+      <div class="stat"><div class="stat-num">140+</div><div class="stat-label">case-study activations in the Recess BTS portfolio</div></div>
+    </div>
+  </section>
+
+  <nav class="cat-rail">
+    <div class="cat-rail-inner">
+      <a href="#energy-drinks">Energy Drinks</a>
+      <a href="#hydration-beverages">Hydration &amp; Beverages</a>
+      <a href="#rtd-coffee-tea">RTD</a>
+      <a href="#snacks-candy">Snacks &amp; Candy</a>
+      <a href="#packed-lunches">Packed Lunches</a>
+      <a href="#mealtime-essentials">Family Mealtime</a>
+      <a href="#otc-vitamins">OTC &amp; Vitamins</a>
+      <a href="#personal-care-beauty">Personal Care &amp; Beauty</a>
+      <a href="#cleaning-laundry">Cleaning &amp; Laundry</a>
+    </div>
+  </nav>
+
+
+  <section id="energy-drinks" class="cat-section">
+    <div class="cat-head">
+      <span class="block-label">Energy Drinks</span>
+      <h2 class="cat-title">Energy Drinks</h2>
+      <p class="cat-sub">Fueling all-nighters, early classes, and dorm-room study sessions.</p>
+    </div>
+    <div class="masonry">
+        <figure class="tile tile-feature" data-reveal>
+          <img src="images/recap/stok-cold_a0cff4a6_2.jpg" alt="STōK Cold Brew — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">STōK Cold Brew</span>
+            <span class="chip-result">Walmart-shopper college students · off-campus housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/zoa-energy_61f45d67_5.jpg" alt="ZOA Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">ZOA Energy</span>
+            <span class="chip-result">Werqwise Coworking · San Mateo</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_098_1.png" alt="ZOA Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">ZOA Energy</span>
+            <span class="chip-result">Brand awareness &amp; trial across fitness + housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_130_1.png" alt="Rockstar Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Rockstar Energy</span>
+            <span class="chip-result">140 WeWork locations nationwide</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/ghost-energy_f4d1df05_0.jpg" alt="Ghost Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Ghost Energy</span>
+            <span class="chip-result">Mile High Run Club · NOHO</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/ghost-energy_db9c93cc_3.jpg" alt="Ghost Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Ghost Energy</span>
+            <span class="chip-result">Nike Running Studio · Irvine</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/ghost-energy_ce9368db_4.jpg" alt="Ghost Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Ghost Energy</span>
+            <span class="chip-result">Nike Running Studio · Santa Monica</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/ghost-energy_82005300_7.jpg" alt="Ghost Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Ghost Energy</span>
+            <span class="chip-result">Crunch Fitness · Silverdale, WA</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/ghost-energy_8d89b93f_6.jpg" alt="Ghost Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Ghost Energy</span>
+            <span class="chip-result">Regus Coworking · Century Square</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/zoa-energy_e9322cc2_0.jpeg" alt="ZOA Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">ZOA Energy</span>
+            <span class="chip-result">F45 Training · Cupertino Vallco</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/zoa-energy_ce6eb7b5_1.jpg" alt="ZOA Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">ZOA Energy</span>
+            <span class="chip-result">Werqwise Coworking · San Francisco</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/zoa-energy_493da854_9.jpg" alt="ZOA Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">ZOA Energy</span>
+            <span class="chip-result">Orangetheory Fitness · Solano Albany</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/rockstar-energy_96a9c087_0.jpg" alt="Rockstar Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Rockstar Energy</span>
+            <span class="chip-result">WeWork · 1 Belvedere</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/rockstar-energy_b12a0d94_1.jpg" alt="Rockstar Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Rockstar Energy</span>
+            <span class="chip-result">WeWork · 1 South Dearborn, Chicago</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/rockstar-energy_a3f04ae1_2.jpg" alt="Rockstar Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Rockstar Energy</span>
+            <span class="chip-result">WeWork · Woodward Ave, Detroit</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/rockstar-energy_5b281482_7.jpg" alt="Rockstar Energy — Energy Drinks" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Rockstar Energy</span>
+            <span class="chip-result">WeWork · 12 E 49th St, NYC</span>
+          </figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section id="hydration-beverages" class="cat-section">
+    <div class="cat-head">
+      <span class="block-label">Hydration &amp; Beverages</span>
+      <h2 class="cat-title">Hydration &amp; Beverages</h2>
+      <p class="cat-sub">From dining-hall fridges to backpack water bottles — always within reach.</p>
+    </div>
+    <div class="masonry">
+        <figure class="tile tile-feature" data-reveal>
+          <img src="images/slide_001_1.png" alt="Origin — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Origin</span>
+            <span class="chip-result">351K samples · 55% lift · 440 locations</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_055_1.png" alt="Origin — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Origin</span>
+            <span class="chip-result">413K samples · Still &amp; Sparkling · 1.9M reach</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/ozarka_c4eba74f_0.JPG" alt="Ozarka — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Ozarka Spring Water</span>
+            <span class="chip-result">F45 Cedar Park · Fitness studio sampling</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/ozarka_d62a97ce_1.jpg" alt="Ozarka — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Ozarka Spring Water</span>
+            <span class="chip-result">Crunch Fitness · Cypress, TX</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/splash_5a4c5825_1.jpg" alt="Splash Refresher — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Splash Refresher</span>
+            <span class="chip-result">Tanger Outlets · Atlantic City · Family sampling</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/splash_84ee3c06_3.jpg" alt="Splash Refresher — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Splash Refresher</span>
+            <span class="chip-result">Tanger Outlets · Fort Worth</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_124_1.jpg" alt="BUBBL&#x27;R — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">BUBBL&#x27;R</span>
+            <span class="chip-result">140K samples · surprise &amp; delight at university housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/mio_2a8fc84d_0.jpg" alt="MiO — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">MiO</span>
+            <span class="chip-result">Off-campus housing + fitness studios near campuses</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/mio_8ac0d04e_1.jpg" alt="MiO — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">MiO</span>
+            <span class="chip-result">Liquid water enhancer · trial sampling</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/topo-chico_d576b624_1.jpg" alt="Topo Chico — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Topo Chico Hard Seltzer</span>
+            <span class="chip-result">WeWork · 1 Belvedere</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/topo-chico_ee69fd32_2.jpg" alt="Topo Chico — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Topo Chico Hard Seltzer</span>
+            <span class="chip-result">WeWork · Salesforce Tower</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/essentia_14b37bf7_0.jpg" alt="Essentia — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Essentia Water</span>
+            <span class="chip-result">Mile High Run Club · Upper East Side</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/essentia_06d8b585_1.jpg" alt="Essentia — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Essentia Water</span>
+            <span class="chip-result">Mile High Run Club · NOMAD</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_126_6.jpg" alt="Poppi — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Poppi</span>
+            <span class="chip-result">Fitness studios &amp; coworking · LA brand awareness</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/mtn-dew-new_cd8346cf_0.jpg" alt="Mountain Dew — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Mountain Dew</span>
+            <span class="chip-result">Dragon Fruit · Walmart sampling to college students</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/mtn-dew-new_35068f3e_1.jpg" alt="Mountain Dew — Hydration & Beverages" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Mountain Dew</span>
+            <span class="chip-result">Mental Boost · 136K+ cans · 164 college housing</span>
+          </figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section id="rtd-coffee-tea" class="cat-section">
+    <div class="cat-head">
+      <span class="block-label">RTD</span>
+      <h2 class="cat-title">RTD</h2>
+      <p class="cat-sub">The ride-to-class essential. Tested with Gen Z where they actually drink it.</p>
+    </div>
+    <div class="masonry">
+        <figure class="tile tile-feature" data-reveal>
+          <img src="images/recap/la-colombe-new_e4289271_1.jpg" alt="La Colombe — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">La Colombe</span>
+            <span class="chip-result">Florida State · Campus Row Student Housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_137_1.png" alt="La Colombe — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">La Colombe</span>
+            <span class="chip-result">Coworking + college + races · PHL &amp; CHI</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/la-colombe-new_f131aa12_0.jpg" alt="La Colombe — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">La Colombe</span>
+            <span class="chip-result">UT San Antonio · Reserve at San Antonio</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/la-colombe-new_1e961cfa_5.jpg" alt="La Colombe — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">La Colombe</span>
+            <span class="chip-result">University of North Texas · NTX Housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/pure-leaf_477710a8_0.jpg" alt="Pure Leaf — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Pure Leaf</span>
+            <span class="chip-result">91K bottles of Blackberry Tea · 7 universities</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_144_1.png" alt="Peace Tea — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Peace Tea</span>
+            <span class="chip-result">Canned tea sampling · university campuses</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/peace-tea_a7da0352_0.jpg" alt="Peace Tea — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Peace Tea</span>
+            <span class="chip-result">University Housing · Union on 6th</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/peace-tea_a7da0352_2.jpg" alt="Peace Tea — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Peace Tea</span>
+            <span class="chip-result">University Housing · Union on 6th</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/peace-tea_a7da0352_4.jpg" alt="Peace Tea — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Peace Tea</span>
+            <span class="chip-result">University Housing · Union on 6th</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/stōk-cold-brew_670207aa_0.jpg" alt="STōK Cold Brew — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">STōK Cold Brew</span>
+            <span class="chip-result">Tailgate · Tailgreeter Venue 25</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/stōk-cold-brew_670207aa_2.jpg" alt="STōK Cold Brew — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">STōK Cold Brew</span>
+            <span class="chip-result">Tailgate · Tailgreeter Venue 25</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/stōk-cold-brew_6702082a_5.jpg" alt="STōK Cold Brew — RTD" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">STōK Cold Brew</span>
+            <span class="chip-result">Tailgate · Tailgreeter Venue 21</span>
+          </figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section id="snacks-candy" class="cat-section">
+    <div class="cat-head">
+      <span class="block-label">Snacks &amp; Candy</span>
+      <h2 class="cat-title">Snacks &amp; Candy</h2>
+      <p class="cat-sub">The vending-machine moment, the dorm-room drawer, the lunchbox staple.</p>
+    </div>
+    <div class="masonry">
+        <figure class="tile tile-feature" data-reveal>
+          <img src="images/slide_005_1.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Nerds</span>
+            <span class="chip-result">New SKU awareness — 82 universities</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_051_1.png" alt="Takis — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Takis</span>
+            <span class="chip-result">Family events, malls, ski resorts</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/trolli-new_c8de6453_0.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Trolli</span>
+            <span class="chip-result">Sour Electric · 25-34 millennial reach</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/trolli-new_698afca2_1.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Trolli</span>
+            <span class="chip-result">Sour Electric · 100K consumers, 81K samples</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_110_1.png" alt="Oreo Cakesters — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Oreo Cakesters</span>
+            <span class="chip-result">Co-branded Back to College program</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_112_1.png" alt="Oreo Cakesters — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Oreo Cakesters</span>
+            <span class="chip-result">Tanger Outlets sampling — mall attendees</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_078_5.png" alt="Garden Veggie Snacks — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Garden Veggie Snacks</span>
+            <span class="chip-result">Flavor Burst — youth sports + housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_102_1.jpg" alt="belVita — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">belVita</span>
+            <span class="chip-result">Energy Bites — Albertsons retail velocity</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/oreo_ce2fc315_3.jpg" alt="Oreo — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Oreo</span>
+            <span class="chip-result">Cookie sampling · campuses + family events</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/oreo_8d64e0cf_0.jpg" alt="Oreo — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Oreo</span>
+            <span class="chip-result">Iconic cookie · trial at college housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_106_1.png" alt="Perfect Snacks — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Perfect Snacks</span>
+            <span class="chip-result">76K samples · 11 fitness events · 45 WeWorks</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_108_5.jpg" alt="Dirt Kitchen Snacks — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Dirt Kitchen Snacks</span>
+            <span class="chip-result">Bar innovation across 10 fitness studios</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_114_1.jpg" alt="Nick&#x27;s — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Nick&#x27;s</span>
+            <span class="chip-result">Protein bar trial via retail-shopper index</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_140_1.png" alt="Calbee — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Calbee</span>
+            <span class="chip-result">Shrimp Chips at schools + university housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_141_1.png" alt="Junkless — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Junkless</span>
+            <span class="chip-result">Granola bars during BTS at elementary schools</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/trolli_beb95ae5_0.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Trolli</span>
+            <span class="chip-result">Coworking · Ironfire Workspaces</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/trolli_beb95ae5_1.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Trolli</span>
+            <span class="chip-result">Coworking · Ironfire Workspaces</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/trolli_beb95ae5_2.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Trolli</span>
+            <span class="chip-result">Coworking · Ironfire Workspaces</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/trolli_beb95ae5_3.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Trolli</span>
+            <span class="chip-result">Coworking · Ironfire Workspaces</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/nerds_4d3a5281_0.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Nerds</span>
+            <span class="chip-result">Holiday Market · Main Street</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/nerds_4d3a5281_1.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Nerds</span>
+            <span class="chip-result">Holiday Market · Main Street</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/nerds_4d3a5281_2.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Nerds</span>
+            <span class="chip-result">Holiday Market · Main Street</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/nerds_4d3a5281_3.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Nerds</span>
+            <span class="chip-result">Holiday Market · Main Street</span>
+          </figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section id="packed-lunches" class="cat-section">
+    <div class="cat-head">
+      <span class="block-label">Packed Lunches</span>
+      <h2 class="cat-title">Packed Lunches</h2>
+      <p class="cat-sub">Parent-trusted, kid-approved — sampled where parents actually shop.</p>
+    </div>
+    <div class="masonry">
+        <figure class="tile tile-feature" data-reveal>
+          <img src="images/recap/lunchables_b9171d0c_1.jpg" alt="Lunchables — Packed Lunches" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Lunchables</span>
+            <span class="chip-result">School Parent &amp; Faculty Sampling · Nationwide K-8</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_013_1.png" alt="Lunchables — Packed Lunches" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Lunchables</span>
+            <span class="chip-result">64K samples at youth sports · 1 DMA</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_028_1.png" alt="Lunchables — Packed Lunches" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Lunchables</span>
+            <span class="chip-result">School pick-up lines · Dollar General schools</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_030_1.png" alt="Lunchables — Packed Lunches" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Lunchables</span>
+            <span class="chip-result">24K samples at summer camps</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_092_1.jpg" alt="Lunchables — Packed Lunches" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Lunchables</span>
+            <span class="chip-result">Grilled Cheesies at recreational centers</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/lunchables_fb272ed7_0.jpg" alt="Lunchables — Packed Lunches" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Lunchables</span>
+            <span class="chip-result">Summer Recreational Centers · Nationwide</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/lunchables_9ebbe812_2.jpg" alt="Lunchables — Packed Lunches" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Lunchables</span>
+            <span class="chip-result">Youth Sports · Atlanta tournaments</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/lunchables_f17f8c16_3.jpg" alt="Lunchables — Packed Lunches" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Lunchables</span>
+            <span class="chip-result">Youth Sports Leagues · Atlanta</span>
+          </figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section id="mealtime-essentials" class="cat-section">
+    <div class="cat-head">
+      <span class="block-label">Family Mealtime</span>
+      <h2 class="cat-title">Family Mealtime</h2>
+      <p class="cat-sub">Heat-and-eat meals, fridge staples, and grab-and-go bites for K-8 lunchboxes, family dinners, and college dorm rooms alike.</p>
+    </div>
+    <div class="masonry">
+        <figure class="tile tile-feature" data-reveal>
+          <img src="images/recap/kraft-mac_2000092c_3.jpg" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">Family sampling at Tanger Outlets · National Harbor</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_087_1.jpg" alt="Kraft Mac &amp; Cheese Deluxe — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese Deluxe</span>
+            <span class="chip-result">506K frozen sample boxes · 912 K-8 schools</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_089_1.jpg" alt="HomeBake — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">HomeBake</span>
+            <span class="chip-result">70K frozen entree packs · K-8 schools, 3 DMAs</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/kraft-mac_a548fa29_1.jpg" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">Tanger Outlets · Memphis · Family Sampling</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/kraft-mac_5bef0301_0.jpeg" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">School Parent &amp; Faculty Sampling · Nationwide K-8</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/kraft-mac_633fe42a_8.jpg" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">College Housing · The Grove at Auburn</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/kraft-mac_2f207c12_7.jpg" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">$1.79M incremental sales · $7.14 iROAS</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/kraft-mac_e6da0125_10.jpg" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">Big Cups 2-pack · 170% Purchase Intent Lift</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/kraft-mac_97cd1638_4.jpg" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">Cardinal Group · Arena District College Housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/kraft-mac_95fbd1ab_5.jpg" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">College Housing · The Grove at Ames</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/kraft-mac_d2968995_6.jpg" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">College Housing · Maverick Place</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_096_1.png" alt="Kraft Mac &amp; Cheese — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Kraft Mac &amp; Cheese</span>
+            <span class="chip-result">Big Cups · Back to College program</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/velveeta-new_81b496d9_0.jpg" alt="Velveeta — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Velveeta</span>
+            <span class="chip-result">Co-branded Mac + Cheese Dip · tailgate housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/velveeta-new_41f96bf8_3.jpg" alt="Velveeta — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Velveeta</span>
+            <span class="chip-result">Big Cups 2-pack · 222% Purchase Intent Lift</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_004_1.png" alt="Danimals — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Danimals</span>
+            <span class="chip-result">Strawberry Explosion Smoothies · K-8 schools</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_118_1.png" alt="Outshine — Family Mealtime" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Outshine</span>
+            <span class="chip-result">Fruit &amp; Yogurt Smoothies · malls + youth sports</span>
+          </figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section id="otc-vitamins" class="cat-section">
+    <div class="cat-head">
+      <span class="block-label">OTC &amp; Vitamins</span>
+      <h2 class="cat-title">OTC &amp; Vitamins</h2>
+      <p class="cat-sub">Cold season hits dorms hard. We meet students before they need it.</p>
+    </div>
+    <div class="masonry">
+        <figure class="tile tile-feature" data-reveal>
+          <img src="images/recap/alka-seltzer_056b2510_0.jpg" alt="Alka-Seltzer — OTC & Vitamins" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Alka-Seltzer</span>
+            <span class="chip-result">FizzyChews · Dollar General + Walmart sampling</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/alka-seltzer_5ddc874c_2.jpg" alt="Alka-Seltzer — OTC & Vitamins" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Alka-Seltzer</span>
+            <span class="chip-result">FizzyChews · malls, fitness, family events, races</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/alka-seltzer_8cf3be14_1.jpg" alt="Alka-Seltzer — OTC & Vitamins" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Alka-Seltzer</span>
+            <span class="chip-result">Trial sampling · nationwide</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_017_1.png" alt="Tums + Advil (Haleon) — OTC & Vitamins" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Tums + Advil (Haleon)</span>
+            <span class="chip-result">Medicare OTC Benefit awareness · Dollar General</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/emergen-c_e9376973_0.png" alt="Emergen-C — OTC & Vitamins" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Emergen-C</span>
+            <span class="chip-result">University housing, vacation rentals, malls, schools</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/emergen-c_5842e6da_1.jpg" alt="Emergen-C — OTC & Vitamins" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Emergen-C</span>
+            <span class="chip-result">Immune support sampling · Gen Z</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/centrum_baf2b1bc_0.jpeg" alt="Centrum — OTC & Vitamins" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Centrum</span>
+            <span class="chip-result">60ct Vitamin Gummies · family events + gyms</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/centrum_2f238b2a_1.jpg" alt="Centrum — OTC & Vitamins" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Centrum</span>
+            <span class="chip-result">Vitamin Gummies · in-studio sampling</span>
+          </figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section id="personal-care-beauty" class="cat-section">
+    <div class="cat-head">
+      <span class="block-label">Personal Care &amp; Beauty</span>
+      <h2 class="cat-title">Personal Care &amp; Beauty</h2>
+      <p class="cat-sub">The new shower-shelf shake-up — sampled where beauty consumers already are.</p>
+    </div>
+    <div class="masonry">
+        <figure class="tile tile-feature" data-reveal>
+          <img src="images/recap/dove-new_bac003ef_1.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Dove</span>
+            <span class="chip-result">50K+ samples · 150K+ reach · gyms + campuses</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/dove-new_e412aea5_2.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Dove</span>
+            <span class="chip-result">Men&#x27;s Whole Body Deodorant · Walmart-index gyms</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/hawaiian-tropic_3f35acf4_0.jpg" alt="Hawaiian Tropic — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Hawaiian Tropic</span>
+            <span class="chip-result">CVS-shopper college students · university housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/hero-cosmetics-new_7cfd6340_0.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Hero Cosmetics</span>
+            <span class="chip-result">Mighty Patch · college housing trial</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_134_1.jpg" alt="Weleda — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Weleda</span>
+            <span class="chip-result">Skin Food Moisturizer · SMS to Target redemption</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/slide_142_1.jpg" alt="Get W by Jake Paul — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Get W by Jake Paul</span>
+            <span class="chip-result">Body spray to male Gen Z at high schools + housing</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/hero-cosmetics_02decb65_0.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Hero Cosmetics</span>
+            <span class="chip-result">Fitness Studio · Crunch Fitness - Nampa, ID</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/hero-cosmetics_02decb65_1.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Hero Cosmetics</span>
+            <span class="chip-result">Fitness Studio · Crunch Fitness - Nampa, ID</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/hero-cosmetics_02decb65_2.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Hero Cosmetics</span>
+            <span class="chip-result">Fitness Studio · Crunch Fitness - Nampa, ID</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/hero-cosmetics_02decb65_3.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Hero Cosmetics</span>
+            <span class="chip-result">Fitness Studio · Crunch Fitness - Nampa, ID</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/dove_a7da0332_0.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Dove</span>
+            <span class="chip-result">Fitness Studio · Ultimate Climbing Gym Greensboro</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/dove_a7da0332_1.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Dove</span>
+            <span class="chip-result">Fitness Studio · Ultimate Climbing Gym Greensboro</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/dove_a7da0332_2.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Dove</span>
+            <span class="chip-result">Fitness Studio · Ultimate Climbing Gym Greensboro</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/dove_a7da0332_3.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Dove</span>
+            <span class="chip-result">Fitness Studio · Ultimate Climbing Gym Greensboro</span>
+          </figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section id="cleaning-laundry" class="cat-section">
+    <div class="cat-head">
+      <span class="block-label">Cleaning &amp; Laundry</span>
+      <h2 class="cat-title">Cleaning &amp; Laundry</h2>
+      <p class="cat-sub">First time doing laundry? Recess is the brand&#x27;s first impression.</p>
+    </div>
+    <div class="masonry">
+        <figure class="tile tile-feature" data-reveal>
+          <img src="images/recap/arm-hammer_8ceb72c6_0.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Arm &amp; Hammer</span>
+            <span class="chip-result">Deep Clean Free &amp; Clear · HEB + Walmart</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/arm-hammer_88a98c5c_1.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Arm &amp; Hammer</span>
+            <span class="chip-result">Laundry sampling · family events</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/oxiclean-new_214aa7d4_0.jpeg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">OxiClean</span>
+            <span class="chip-result">Odorblaster + MaxForce · vacation rentals + schools</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/recap/oxiclean-new_6bd45d17_1.jpg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">OxiClean</span>
+            <span class="chip-result">Stain remover sampling · youth sports</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/oxiclean_02242e8f_0.jpg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">OxiClean</span>
+            <span class="chip-result">Youth Sports · Columbus</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/oxiclean_02242e8f_1.png" alt="OxiClean — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">OxiClean</span>
+            <span class="chip-result">Youth Sports · Columbus</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/oxiclean_02242e8f_2.jpg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">OxiClean</span>
+            <span class="chip-result">Youth Sports · Columbus</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/oxiclean_02242e8f_3.jpg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">OxiClean</span>
+            <span class="chip-result">Youth Sports · Columbus</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/arm-and-hammer_02357e81_0.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Arm &amp; Hammer</span>
+            <span class="chip-result">Family Event · Andretti Indoor Karting &amp; Games- Orlando, FL</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/arm-and-hammer_02357e81_1.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Arm &amp; Hammer</span>
+            <span class="chip-result">Family Event · Andretti Indoor Karting &amp; Games- Orlando, FL</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/arm-and-hammer_02357e81_2.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Arm &amp; Hammer</span>
+            <span class="chip-result">Family Event · Andretti Indoor Karting &amp; Games- Orlando, FL</span>
+          </figcaption>
+        </figure>
+        <figure class="tile" data-reveal>
+          <img src="images/supplemental/arm-and-hammer_02357e81_3.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
+          <figcaption>
+            <span class="chip-brand">Arm &amp; Hammer</span>
+            <span class="chip-result">Family Event · Andretti Indoor Karting &amp; Games- Orlando, FL</span>
+          </figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section id="cta" class="cta">
+    <div class="cta-bg"></div>
+    <div class="cta-inner">
+      <span class="block-label">Ready for BTS 2026?</span>
+      <h2>Bring your brand to <em>the moments students remember.</em></h2>
+      <p>Turnkey activations, measured purchase intent lift, and the most-trusted CPG portfolio in college and K-12.</p>
+      <a href="https://www.recess.is/contact" class="btn-primary">Book a meeting →</a>
+    </div>
+  </section>
+
+  <footer>
+    <img src="logo-icon-white.png" alt="Recess">
+    <small>© Recess · Back to School & Back to College · 49 brands · 140 activations</small>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); }
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+    const statsIO = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        document.querySelectorAll('.stat-num').forEach(el => {
+          const raw = el.textContent.trim();
+          const m = raw.match(/^([\d,]+)(\+?)$/);
+          if (!m) return;
+          const target = parseInt(m[1].replace(/,/g, ''), 10);
+          const suffix = m[2] || '';
+          const duration = 1400;
+          const start = performance.now();
+          const easeOut = t => 1 - Math.pow(1 - t, 3);
+          function frame(now) {
+            const t = Math.min(1, (now - start) / duration);
+            const val = Math.floor(easeOut(t) * target);
+            el.textContent = val.toLocaleString() + suffix;
+            if (t < 1) requestAnimationFrame(frame);
+            else el.textContent = target.toLocaleString() + suffix;
+          }
+          requestAnimationFrame(frame);
+        });
+        statsIO.disconnect();
+      }
+    }, { threshold: 0.3 });
+    const statsEl = document.querySelector('.stats');
+    if (statsEl) statsIO.observe(statsEl);
+  </script>
+
+</body>
+</html>
