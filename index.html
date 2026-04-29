@@ -52,21 +52,22 @@
     .cat-sub { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 640px; line-height: 1.55; margin: 0; }
 
     /* Natural-aspect masonry (CSS columns — Pinterest-style, no empty cells) */
-    .masonry { column-count: 4; column-gap: 10px; }
-    .tile { position: relative; overflow: hidden; border-radius: 12px; background: var(--color-navy-light); margin: 0 0 10px; padding: 0; break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; display: block; }
+    .masonry { column-count: 3; column-gap: 14px; }
+    .tile { position: relative; overflow: hidden; border-radius: 14px; background: var(--color-navy-light); margin: 0 0 14px; padding: 0; break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; display: block; }
     .tile.revealed { opacity: 1; transform: translateY(0); }
-    .tile img { display: block; width: 100%; height: auto; transition: transform 0.6s ease; filter: brightness(0.95); }
-    .tile:hover img { transform: scale(1.04); filter: brightness(1.05); }
-    .tile figcaption { position: absolute; inset: auto 0 0 0; padding: 90px 14px 14px; background: linear-gradient(to top, rgba(10,15,26,0.95), rgba(10,15,26,0.55) 60%, transparent); display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
-    .chip-brand { display: inline-flex; align-items: center; align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-aqua); background: rgba(20,185,214,0.18); padding: 5px 11px; border-radius: 100px; border: 1px solid rgba(20,185,214,0.35); }
-    .chip-result { font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 500; line-height: 1.35; max-width: 90%; }
+    .tile img { display: block; width: 100%; height: auto; transition: transform 0.6s ease; filter: brightness(0.97); }
+    .tile:hover img { transform: scale(1.03); filter: brightness(1.05); }
+    .tile figcaption { position: absolute; inset: auto 0 0 0; padding: 80px 18px 18px; background: linear-gradient(to top, rgba(10,15,26,0.92), rgba(10,15,26,0.50) 55%, transparent); display: flex; flex-direction: column; gap: 7px; pointer-events: none; opacity: 0; transition: opacity 0.4s ease; }
+    .tile:hover figcaption { opacity: 1; }
+    .chip-brand { display: inline-flex; align-items: center; align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-aqua); background: rgba(20,185,214,0.20); padding: 6px 13px; border-radius: 100px; border: 1px solid rgba(20,185,214,0.40); backdrop-filter: blur(4px); }
+    .chip-result { font-size: 13px; color: rgba(255,255,255,0.92); font-weight: 500; line-height: 1.4; max-width: 92%; }
 
-    /* Feature tile — full-width hero in each section */
-    .tile.tile-feature { column-span: all; margin-bottom: 14px; }
-    .tile.tile-feature img { width: 100%; max-height: 540px; object-fit: cover; object-position: center; }
-    .tile.tile-feature figcaption { padding: 140px 28px 28px; }
-    .tile.tile-feature .chip-brand { font-size: 13px; padding: 7px 14px; }
-    .tile.tile-feature .chip-result { font-size: 14px; max-width: 60%; }
+    /* Feature tile — full-bleed hero in each section, image dominant */
+    .tile.tile-feature { column-span: all; margin-bottom: 18px; border-radius: 18px; max-height: 80vh; }
+    .tile.tile-feature img { width: 100%; height: 80vh; max-height: 80vh; object-fit: cover; object-position: center 35%; }
+    .tile.tile-feature figcaption { padding: 200px 40px 40px; opacity: 1; background: linear-gradient(to top, rgba(10,15,26,0.95), rgba(10,15,26,0.30) 50%, transparent); }
+    .tile.tile-feature .chip-brand { font-size: 14px; padding: 8px 16px; }
+    .tile.tile-feature .chip-result { font-size: 17px; max-width: 70%; line-height: 1.4; font-weight: 500; color: rgba(255,255,255,0.95); }
 
     /* CTA */
     .cta { position: relative; padding: 140px 48px; overflow: hidden; margin-top: 80px; }
@@ -82,24 +83,24 @@
     footer small { color: rgba(255,255,255,0.40); font-size: 13px; }
 
     /* Responsive */
-    @media (max-width: 1280px) {
-      .masonry { column-count: 3; }
+    @media (max-width: 1100px) {
+      .masonry { column-count: 2; }
     }
     @media (max-width: 900px) {
       .nav { padding: 14px 24px; }
       .hero { padding: 110px 24px 60px; }
-      .stats, .cta { padding: 80px 24px; }
-      .stats-inner { grid-template-columns: 1fr; }
       .cat-section { padding: 60px 12px 24px; }
       .cat-head { padding: 0 12px; margin-bottom: 24px; }
-      .masonry { column-count: 2; column-gap: 8px; }
-      .tile { margin-bottom: 8px; }
+      .masonry { column-count: 2; column-gap: 10px; }
+      .tile { margin-bottom: 10px; }
+      .tile figcaption { opacity: 1; }
       .tile.tile-feature { column-span: all; }
-      .tile.tile-feature figcaption { padding: 80px 16px 16px; }
-      .tile.tile-feature .chip-result { max-width: 100%; }
+      .tile.tile-feature img { max-height: 460px; object-position: center 25%; }
+      .tile.tile-feature figcaption { padding: 100px 20px 20px; }
+      .tile.tile-feature .chip-result { max-width: 100%; font-size: 14px; }
       footer { padding: 32px 24px; }
     }
-    @media (max-width: 540px) {
+    @media (max-width: 600px) {
       .masonry { column-count: 1; }
     }
   </style>
@@ -108,26 +109,16 @@
 
   <nav class="nav">
     <a href="https://www.recess.is/" class="nav-logo"><img src="logo-full-white.png" alt="Recess"></a>
-    <a href="#cta" class="nav-cta">Book a meeting →</a>
   </nav>
 
   <header class="hero">
     <div class="hero-bg"></div>
     <div class="hero-inner">
       <span class="hero-label">Back to School & Back to College</span>
-      <h1>The brands students <em>actually use</em> — sampled where they live, learn, and play.</h1>
-      <p class="hero-sub">49 household brands across 9 categories. From K-8 cafeterias to college dorms, from morning energy to late-night snacks — Recess delivers product trial at the moments that drive purchase.</p>
-      <a href="#energy-drinks" class="btn-primary">See the brands →</a>
+      <h1>The brands students <em>remember</em>. The brands parents <em>trust</em>.</h1>
+      <p class="hero-sub">From K-8 lunchboxes to college dorm rooms, morning routines to late-night study sessions — Recess puts your brand into students&#x27; hands at the moments that turn trial into loyalty, delivered by the people they trust most.</p>
     </div>
   </header>
-
-  <section class="stats">
-    <div class="stats-inner">
-      <div class="stat"><div class="stat-num">49+</div><div class="stat-label">household brands sampled in the last 24 months</div></div>
-      <div class="stat"><div class="stat-num">9</div><div class="stat-label">CPG categories — every shelf in the dorm and the lunchbox</div></div>
-      <div class="stat"><div class="stat-num">140+</div><div class="stat-label">case-study activations in the Recess BTS portfolio</div></div>
-    </div>
-  </section>
 
   <nav class="cat-rail">
     <div class="cat-rail-inner">
@@ -445,38 +436,38 @@
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/peace-tea_a7da0352_2.jpg" alt="Peace Tea — RTD" loading="lazy">
+          <img src="images/recap/la-colombe-new_61eeb3ec_3.jpg" alt="La Colombe — RTD" loading="lazy">
           <figcaption>
-            <span class="chip-brand">Peace Tea</span>
-            <span class="chip-result">University Housing · Union on 6th</span>
+            <span class="chip-brand">La Colombe</span>
+            <span class="chip-result">Florida State · State House Varsity</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/peace-tea_a7da0352_4.jpg" alt="Peace Tea — RTD" loading="lazy">
+          <img src="images/recap/la-colombe-new_ad92c4ac_6.jpg" alt="La Colombe — RTD" loading="lazy">
           <figcaption>
-            <span class="chip-brand">Peace Tea</span>
-            <span class="chip-result">University Housing · Union on 6th</span>
+            <span class="chip-brand">La Colombe</span>
+            <span class="chip-result">University of Houston · GSH Houston</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/stōk-cold-brew_670207aa_0.jpg" alt="STōK Cold Brew — RTD" loading="lazy">
+          <img src="images/recap/stok-cold_273ab129_1.jpg" alt="STōK Cold Brew — RTD" loading="lazy">
           <figcaption>
             <span class="chip-brand">STōK Cold Brew</span>
-            <span class="chip-result">Tailgate · Tailgreeter Venue 25</span>
+            <span class="chip-result">Tailgate sampling · Game day at college venues</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/stōk-cold-brew_670207aa_2.jpg" alt="STōK Cold Brew — RTD" loading="lazy">
+          <img src="images/recap/stok-cold_84aab64b_5.jpg" alt="STōK Cold Brew — RTD" loading="lazy">
           <figcaption>
             <span class="chip-brand">STōK Cold Brew</span>
-            <span class="chip-result">Tailgate · Tailgreeter Venue 25</span>
+            <span class="chip-result">Cold brew can · ride-to-class moment</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/stōk-cold-brew_6702082a_5.jpg" alt="STōK Cold Brew — RTD" loading="lazy">
+          <img src="images/recap/stok-cold_287b0458_7.jpg" alt="STōK Cold Brew — RTD" loading="lazy">
           <figcaption>
             <span class="chip-brand">STōK Cold Brew</span>
-            <span class="chip-result">Tailgate · Tailgreeter Venue 21</span>
+            <span class="chip-result">Cold brew · campus + tailgate trial</span>
           </figcaption>
         </figure>
     </div>
@@ -602,24 +593,24 @@
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/trolli_beb95ae5_1.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
+          <img src="images/recap/trolli-new_3c4e4170_2.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
           <figcaption>
             <span class="chip-brand">Trolli</span>
-            <span class="chip-result">Coworking · Ironfire Workspaces</span>
+            <span class="chip-result">Sour Brite gummies · campus crossover</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/trolli_beb95ae5_2.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
+          <img src="images/recap/trolli-new_bed3ad0e_4.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
           <figcaption>
             <span class="chip-brand">Trolli</span>
-            <span class="chip-result">Coworking · Ironfire Workspaces</span>
+            <span class="chip-result">Candy trial · Gen Z + millennial reach</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/trolli_beb95ae5_3.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
+          <img src="images/recap/trolli-new_381264dc_5.jpg" alt="Trolli — Snacks & Candy" loading="lazy">
           <figcaption>
             <span class="chip-brand">Trolli</span>
-            <span class="chip-result">Coworking · Ironfire Workspaces</span>
+            <span class="chip-result">Late-night sweet · dorm-room drawer</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
@@ -630,24 +621,24 @@
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/nerds_4d3a5281_1.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
+          <img src="images/recap/nerds-new_b2eba8b9_0.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
           <figcaption>
             <span class="chip-brand">Nerds</span>
-            <span class="chip-result">Holiday Market · Main Street</span>
+            <span class="chip-result">Gummy Clusters trial · 82 universities</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/nerds_4d3a5281_2.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
+          <img src="images/recap/nerds-new_c619f2ca_2.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
           <figcaption>
             <span class="chip-brand">Nerds</span>
-            <span class="chip-result">Holiday Market · Main Street</span>
+            <span class="chip-result">Sweet trial · Gen Z campus housing</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/nerds_4d3a5281_3.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
+          <img src="images/recap/nerds-new_74ef0873_4.jpg" alt="Nerds — Snacks & Candy" loading="lazy">
           <figcaption>
             <span class="chip-brand">Nerds</span>
-            <span class="chip-result">Holiday Market · Main Street</span>
+            <span class="chip-result">Candy sampling · K-8 family events</span>
           </figcaption>
         </figure>
     </div>
@@ -957,59 +948,59 @@
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/hero-cosmetics_02decb65_0.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
+          <img src="images/recap/hero-cosmetics-new_57f717d9_1.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
           <figcaption>
             <span class="chip-brand">Hero Cosmetics</span>
-            <span class="chip-result">Fitness Studio · Crunch Fitness - Nampa, ID</span>
+            <span class="chip-result">Mighty Patch · Crunch Fitness · Nampa, ID</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/hero-cosmetics_02decb65_1.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
+          <img src="images/recap/hero-cosmetics-new_2f8bed59_3.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
           <figcaption>
             <span class="chip-brand">Hero Cosmetics</span>
-            <span class="chip-result">Fitness Studio · Crunch Fitness - Nampa, ID</span>
+            <span class="chip-result">Skincare trial · Gen Z fitness studios</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/hero-cosmetics_02decb65_2.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
+          <img src="images/recap/hero-cosmetics-new_c5f8de32_5.jpeg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
           <figcaption>
             <span class="chip-brand">Hero Cosmetics</span>
-            <span class="chip-result">Fitness Studio · Crunch Fitness - Nampa, ID</span>
+            <span class="chip-result">Mighty Patch · acne care for college Gen Z</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/hero-cosmetics_02decb65_3.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
+          <img src="images/recap/hero-cosmetics-new_b0dba95b_7.jpg" alt="Hero Cosmetics — Personal Care & Beauty" loading="lazy">
           <figcaption>
             <span class="chip-brand">Hero Cosmetics</span>
-            <span class="chip-result">Fitness Studio · Crunch Fitness - Nampa, ID</span>
+            <span class="chip-result">Invisible+ · skincare sampling at studios</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
           <img src="images/supplemental/dove_a7da0332_0.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
           <figcaption>
             <span class="chip-brand">Dove</span>
-            <span class="chip-result">Fitness Studio · Ultimate Climbing Gym Greensboro</span>
+            <span class="chip-result">Ultimate Climbing Gym · Greensboro, NC</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/dove_a7da0332_1.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
+          <img src="images/recap/dove-new_3a8bcf7d_5.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
           <figcaption>
             <span class="chip-brand">Dove</span>
-            <span class="chip-result">Fitness Studio · Ultimate Climbing Gym Greensboro</span>
+            <span class="chip-result">Whole Body Deodorant · youth athletics trial</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/dove_a7da0332_2.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
+          <img src="images/recap/dove-new_2fd073cd_7.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
           <figcaption>
             <span class="chip-brand">Dove</span>
-            <span class="chip-result">Fitness Studio · Ultimate Climbing Gym Greensboro</span>
+            <span class="chip-result">Body care sampling · campus + gym crossover</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/dove_a7da0332_3.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
+          <img src="images/recap/dove-new_11b81dac_6.jpg" alt="Dove — Personal Care & Beauty" loading="lazy">
           <figcaption>
             <span class="chip-brand">Dove</span>
-            <span class="chip-result">Fitness Studio · Ultimate Climbing Gym Greensboro</span>
+            <span class="chip-result">Beauty bar trial · fitness + parent demos</span>
           </figcaption>
         </figure>
     </div>
@@ -1054,68 +1045,44 @@
           <img src="images/supplemental/oxiclean_02242e8f_0.jpg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
           <figcaption>
             <span class="chip-brand">OxiClean</span>
-            <span class="chip-result">Youth Sports · Columbus</span>
+            <span class="chip-result">Youth Sports sampling · Columbus</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/oxiclean_02242e8f_1.png" alt="OxiClean — Cleaning & Laundry" loading="lazy">
+          <img src="images/recap/oxiclean-new_63c824cc_4.jpg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
           <figcaption>
             <span class="chip-brand">OxiClean</span>
-            <span class="chip-result">Youth Sports · Columbus</span>
+            <span class="chip-result">Stain remover trial · family events</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/oxiclean_02242e8f_2.jpg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
+          <img src="images/recap/oxiclean-new_27d038d5_3.jpg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
           <figcaption>
             <span class="chip-brand">OxiClean</span>
-            <span class="chip-result">Youth Sports · Columbus</span>
+            <span class="chip-result">Versatile cleaner · in-home demo sampling</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/oxiclean_02242e8f_3.jpg" alt="OxiClean — Cleaning & Laundry" loading="lazy">
-          <figcaption>
-            <span class="chip-brand">OxiClean</span>
-            <span class="chip-result">Youth Sports · Columbus</span>
-          </figcaption>
-        </figure>
-        <figure class="tile" data-reveal>
-          <img src="images/supplemental/arm-and-hammer_02357e81_0.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
+          <img src="images/recap/arm-hammer_76db6c5c_3.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
           <figcaption>
             <span class="chip-brand">Arm &amp; Hammer</span>
-            <span class="chip-result">Family Event · Andretti Indoor Karting &amp; Games- Orlando, FL</span>
+            <span class="chip-result">Andretti Karting · Family Event · Orlando, FL</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/arm-and-hammer_02357e81_1.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
+          <img src="images/recap/arm-hammer_0d0366b6_4.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
           <figcaption>
             <span class="chip-brand">Arm &amp; Hammer</span>
-            <span class="chip-result">Family Event · Andretti Indoor Karting &amp; Games- Orlando, FL</span>
+            <span class="chip-result">Detergent trial · multi-DMA sampling</span>
           </figcaption>
         </figure>
         <figure class="tile" data-reveal>
-          <img src="images/supplemental/arm-and-hammer_02357e81_2.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
+          <img src="images/recap/arm-hammer_73472c85_5.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
           <figcaption>
             <span class="chip-brand">Arm &amp; Hammer</span>
-            <span class="chip-result">Family Event · Andretti Indoor Karting &amp; Games- Orlando, FL</span>
+            <span class="chip-result">Laundry care · first-time-doing-laundry students</span>
           </figcaption>
         </figure>
-        <figure class="tile" data-reveal>
-          <img src="images/supplemental/arm-and-hammer_02357e81_3.jpg" alt="Arm &amp; Hammer — Cleaning & Laundry" loading="lazy">
-          <figcaption>
-            <span class="chip-brand">Arm &amp; Hammer</span>
-            <span class="chip-result">Family Event · Andretti Indoor Karting &amp; Games- Orlando, FL</span>
-          </figcaption>
-        </figure>
-    </div>
-  </section>
-
-  <section id="cta" class="cta">
-    <div class="cta-bg"></div>
-    <div class="cta-inner">
-      <span class="block-label">Ready for BTS 2026?</span>
-      <h2>Bring your brand to <em>the moments students remember.</em></h2>
-      <p>Turnkey activations, measured purchase intent lift, and the most-trusted CPG portfolio in college and K-12.</p>
-      <a href="https://www.recess.is/contact" class="btn-primary">Book a meeting →</a>
     </div>
   </section>
 
